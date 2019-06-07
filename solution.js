@@ -1,28 +1,26 @@
-function findDifference(row) {
-  let max = findMax(row);
-  let min = findMin(row);
-  let difference = max - min;
-  return difference;
-}
-
 function findMax(row) {
-  let max = Math.max.apply(null, row);
+  const max = Math.max.apply(null, row);
   return max;
 }
 
 function findMin(row) {
-  let min = Math.min.apply(null, row);
+  const min = Math.min.apply(null, row);
   return min;
+}
+
+function findDifference(row) {
+  const difference = findMax(row) - findMin(row);
+  return difference;
 }
 
 function findCheckSum(table) {
   let checkSum = 0;
   for (row of table) {
-    let difference = findDifference(row);
-    checkSum += difference;
+    checkSum += findDifference(row);
   }
   return checkSum;
 }
+
 var data = [
   [409, 194, 207, 470, 178],
   [454, 235, 333, 511, 103],
